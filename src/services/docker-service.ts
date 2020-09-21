@@ -1,7 +1,10 @@
 import { autoInjectable, inject } from 'tsyringe';
+import * as Dckr from 'dockerode';
 
 @autoInjectable()
-export default class DiscordService {
+export default class DockerService {
+  Docker = new Dckr();
+
   config: Config;
 
   constructor(@inject('Config') config: Config) {
@@ -11,10 +14,11 @@ export default class DiscordService {
   /**
    * Fetch all containers on current machine.
    */
-  getAllContainers = async() => {
-    // Placeholder
-    return {
-      containers: [],
-    }
-  }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  getAllContainers = async (): Promise<any> => new Promise((resolve, reject) => {
+    this.Docker.listContainers((err, containers) => {
+      if (err) reject(err);
+      resolve(containers);
+    });
+  })
 }

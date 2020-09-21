@@ -1,5 +1,5 @@
 {
-  "name": "docker-manager-backend",
+  "name": "docker-manager-api",
   "author": "Elian0213",
   "license": "AGPL-3.0",
   "version": "0.0.1",
@@ -32,6 +32,7 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
+    "dockerode": "^3.2.1",
     "express": "^4.17.1",
     "file-system": "^2.2.2",
     "reflect-metadata": "^0.1.13",
