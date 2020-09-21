@@ -1,15 +1,23 @@
 {
   "name": "docker-manager-backend",
-  "version": "1.0.0",
-  "description": "backend for docker manager",
+  "author": "Elian0213",
+  "license": "AGPL-3.0",
+  "version": "0.0.1",
+  "description": "API for managing Docker containers.",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
     "dev": "tsc && node dist/app"
   },
-  "author": "elian0213",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Elian0213/docker-manager-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Elian0213/docker-manager-api/issues"
+  },
+  "homepage": "https://github.com/Elian0213/docker-manager-api#readme",
   "devDependencies": {
     "@types/express": "^4.17.8",
     "@types/node": "^14.11.1",
