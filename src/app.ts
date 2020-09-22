@@ -5,10 +5,15 @@ import { container } from 'tsyringe';
 import * as bodyParser from 'body-parser';
 import * as cors from 'cors';
 import { IController } from './types/controllers';
+
+// Services
 import ConfigService from './services/config-service';
 
 // Controllers
 import DockerController from './controllers/docker-controller';
+
+// Database
+import DBController from './database';
 
 // Entry point for the app.
 const mainAsync = async () => {
@@ -21,6 +26,10 @@ const mainAsync = async () => {
 
   container.register<Config>('Config', { useValue: config });
 
+  // Initialize database!
+  const db = new DBController(config);
+  console.log(db.init());
+
   // Formatting data & CORS
   app.use(bodyParser.json());
   app.use(cors());
@@ -30,7 +39,6 @@ const mainAsync = async () => {
   app.use('/docker', container.resolve<IController>(DockerController).getRouter());
 
   app.listen(config.ExpressPort, () => {
-    // eslint-disable-next-line no-console
     console.log(`Back-end running! port: ${config.ExpressPort}`);
   });
 };

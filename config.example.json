@@ -1,3 +1,18 @@
 {
-    "ExpressPort": 8080
+    "ExpressPort": 8080,
+    "Security": {
+        "saltRounds": 10,
+        "defaultAccount": {
+            "username": "admin",
+            "password": "admin",
+            "email": "admin@email.com"
+        }
+    },
+    "Database": {
+        "user": "user",
+        "host": "127.0.0.1",
+        "database": "postgres",
+        "password": "",
+        "port": "5432"
+    }
 }
